@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local credentials and generated reports
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+artifacts/
+.nicegui/
+
+.agents/
+
+.env
+
+real_transcripts/

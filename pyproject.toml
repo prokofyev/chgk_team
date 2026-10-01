@@ -1,0 +1,40 @@
+[project]
+name = "chgk-team"
+version = "0.1.0"
+description = "Six-player CHGK discussion orchestrated by LangGraph and GigaChat"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph>=1.0,<2",
+    "langchain-gigachat>=0.3,<1",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.34,<1",
+    "httpx>=0.28,<1",
+    "nicegui>=3,<4",
+    "pydantic-settings>=2.7,<3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+chgk-serve = "chgk_team.api:main"
+chgk-evaluate = "chgk_team.evaluation:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "ruff>=0.11,<1", "playwright>=1.50,<2"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chgk_team"]
